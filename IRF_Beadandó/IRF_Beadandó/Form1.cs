@@ -44,7 +44,9 @@ namespace IRF_Beadandó
             //             where j.Id == 1
             //             select new Nyertes(j)).ToList();
             // kisorsoltakdgw.DataSource = nyert;
-            int kit = rnd.Next(1,10);
+            var összes = (from j in context.Jelenetkezok
+                         select j).Count();
+            int kit = rnd.Next(1, összes+1);
             var nyert = from j in context.Jelenetkezok
                         where j.Id == kit
                         select j;
