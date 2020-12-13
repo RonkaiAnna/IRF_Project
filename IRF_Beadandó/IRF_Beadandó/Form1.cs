@@ -14,6 +14,7 @@ namespace IRF_Beadandó
     public partial class Form1 : Form
     {
         adatbazisEntities context = new adatbazisEntities();
+        Random rnd = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -43,8 +44,9 @@ namespace IRF_Beadandó
             //             where j.Id == 1
             //             select new Nyertes(j)).ToList();
             // kisorsoltakdgw.DataSource = nyert;
+            int kit = rnd.Next(1,10);
             var nyert = from j in context.Jelenetkezok
-                        where j.Id == 1
+                        where j.Id == kit
                         select j;
             kisorsoltakdgw.DataSource = nyert.ToList();
 
