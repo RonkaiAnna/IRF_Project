@@ -15,6 +15,7 @@ namespace IRF_Beadandó
     {
         adatbazisEntities1 context = new adatbazisEntities1();
         Random rnd = new Random();
+        List<Jelentkezok> nyerő = new List<Jelentkezok>();
         public Form1()
         {
             InitializeComponent();
@@ -30,25 +31,15 @@ namespace IRF_Beadandó
             if (sfd.ShowDialog() != DialogResult.OK) return;
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
-                foreach (var j in context.Jelentkezok)
+                foreach (var j in nyerő)
                 {
-                    sw.Write(j.Id);
-                    sw.Write(";");
                     sw.Write(j.Név);
                     sw.Write(";");
                     sw.Write(j.Email_cím);
                     sw.WriteLine();
+                    
                 }
-                //List<Nyertes> nyert = (from j in context.Jelentkezok
-                //                       where j.Id == 1
-                //                       select new Nyertes(j)).ToList();
-                //foreach (var j in nyert)
-                //{
-                //    sw.Write(j.Név);
-                //    sw.Write(";");
-                //    sw.Write(j.Email_cím);
-                //    sw.WriteLine();
-                //}
+                
             }
         }
 
@@ -59,10 +50,11 @@ namespace IRF_Beadandó
         
         void Sorsolas()
         {
-            //List<Nyertes> nyert = (from j in context.Jelentkezok
-            //                       where j.Id == 1
-            //                       select new Nyertes(j)).ToList();
-            //kisorsoltakdgw.DataSource = nyert;
+            List<Jelentkezok> nyert = (from j in context.Jelentkezok
+                                 where j.Id == 1
+                                 select j).ToList();
+            nyerő = nyert;
+            kisorsoltakdgw.DataSource = nyerő;
             var összes = (from j in context.Jelentkezok
                           select j).Count();
             //var első = (from j in context.Jelentkezok
@@ -72,10 +64,10 @@ namespace IRF_Beadandó
             //MessageBox.Show(első.ToString());
             //int kit = rnd.Next(első, utolsó);
             int kit = rnd.Next(1, összes + 1);
-            var nyert = from j in context.Jelentkezok
-                        where j.Id == kit
-                        select j;
-            kisorsoltakdgw.DataSource = nyert.ToList();
+            //var nyert = from j in context.Jelentkezok
+            //            where j.Id == kit
+            //            select j;
+            //kisorsoltakdgw.DataSource = nyert.ToList();
 
         }
     }
