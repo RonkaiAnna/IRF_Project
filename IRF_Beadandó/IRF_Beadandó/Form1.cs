@@ -14,10 +14,10 @@ namespace IRF_Beadandó
     public partial class Form1 : Form
     {
         adatbazisEntities context = new adatbazisEntities();
-        BindingList<string> kisorsoltak = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void mentesgomb_Click(object sender, EventArgs e)
@@ -39,10 +39,15 @@ namespace IRF_Beadandó
         }
         void Sorsolas()
         {
-            var kisorsolt = from j in context.Jelenetkezok
-                            //where
-                            select j;
-            kisorsoltak = kisorsolt.ToList();
+            //List<Nyertes> nyert = (from j in context.Jelenetkezok
+            //             where j.Id == 1
+            //             select new Nyertes(j)).ToList();
+            // kisorsoltakdgw.DataSource = nyert;
+            var nyert = from j in context.Jelenetkezok
+                        where j.Id == 1
+                        select j;
+            kisorsoltakdgw.DataSource = nyert.ToList();
+
         }
     }
 }

@@ -30,10 +30,10 @@ namespace IRF_Beadandó
         private void InitializeComponent()
         {
             this.sorsologomb = new System.Windows.Forms.Button();
-            this.kisorsoltak = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.mentesgomb = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.kisorsoltak)).BeginInit();
+            this.kisorsoltakdgw = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.kisorsoltakdgw)).BeginInit();
             this.SuspendLayout();
             // 
             // sorsologomb
@@ -45,14 +45,6 @@ namespace IRF_Beadandó
             this.sorsologomb.Text = "Sorsolás";
             this.sorsologomb.UseVisualStyleBackColor = true;
             this.sorsologomb.Click += new System.EventHandler(this.sorsologomb_Click);
-            // 
-            // kisorsoltak
-            // 
-            this.kisorsoltak.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.kisorsoltak.Location = new System.Drawing.Point(214, 66);
-            this.kisorsoltak.Name = "kisorsoltak";
-            this.kisorsoltak.Size = new System.Drawing.Size(463, 275);
-            this.kisorsoltak.TabIndex = 1;
             // 
             // label1
             // 
@@ -73,18 +65,26 @@ namespace IRF_Beadandó
             this.mentesgomb.UseVisualStyleBackColor = true;
             this.mentesgomb.Click += new System.EventHandler(this.mentesgomb_Click);
             // 
+            // kisorsoltakdgw
+            // 
+            this.kisorsoltakdgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kisorsoltakdgw.Location = new System.Drawing.Point(217, 66);
+            this.kisorsoltakdgw.Name = "kisorsoltakdgw";
+            this.kisorsoltakdgw.Size = new System.Drawing.Size(426, 264);
+            this.kisorsoltakdgw.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.kisorsoltakdgw);
             this.Controls.Add(this.mentesgomb);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.kisorsoltak);
             this.Controls.Add(this.sorsologomb);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.kisorsoltak)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kisorsoltakdgw)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,9 +93,9 @@ namespace IRF_Beadandó
         #endregion
 
         private System.Windows.Forms.Button sorsologomb;
-        private System.Windows.Forms.DataGridView kisorsoltak;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button mentesgomb;
+        private System.Windows.Forms.DataGridView kisorsoltakdgw;
     }
 }
 
