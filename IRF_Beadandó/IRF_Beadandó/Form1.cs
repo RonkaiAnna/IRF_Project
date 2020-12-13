@@ -16,7 +16,6 @@ namespace IRF_Beadandó
     {
         adatbazisEntities context = new adatbazisEntities();
         Random rnd = new Random();
-        List<Jelentkezok> nyerő = new List<Jelentkezok>();
         public Form1()
         {
             InitializeComponent();
@@ -40,11 +39,12 @@ namespace IRF_Beadandó
             if (sfd.ShowDialog() != DialogResult.OK) return;
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
-                foreach (var j in nyerő)
+                foreach (var x in context.Sorsoltak)
                 {
-                    sw.Write(j.Név);
+                    
+                    sw.Write(x.SorsoltNév);
                     sw.Write(";");
-                    sw.Write(j.Email_cím);
+                    sw.Write(x.SorsoltEmail_cím);
                     sw.WriteLine();
                     
                 }
@@ -119,59 +119,28 @@ namespace IRF_Beadandó
                     }
                 }
             
-            /*for (int i = 0; i < szamok.Count; i++)
-            {
-                if (szamok[i]==kit)
-                {
-                    return;
-                }
-                else
-                {
-                    szamok.Add(kit);
-                    if (true)
-                    {
-
-                    }
-                }
-            }*/
             
 
+        }
 
-            /*var összes = (from j in context.Jelentkezok
-                          select j).Count();
-            //ID probléma
-            var első = (from j in context.Jelentkezok
-                        select j.Id).First();
-            var utolsó = (from j in context.Jelentkezok
-                          select j.Id).Last();
-            MessageBox.Show(első.ToString());
-            int kit = rnd.Next(első, utolsó);
-            for (int i = 0; i < 2; i++)
+        private void deletegomb_Click(object sender, EventArgs e)
+        {
+            var delete = from x in context.Sorsoltak
+                          select x ;
+            //context.Sorsoltak.Remove(delete);
+            context.Sorsoltak.RemoveRange(delete);
+            try
             {
-                kit = rnd.Next(1, összes + 1);
-                List<Jelentkezok> nyert = (from j in context.Jelentkezok
-                                           where j.Id == kit
-                                           select j).ToList();
-                nyerő = nyert;
+                context.SaveChanges();
             }
-               
-            
-                
-            
-            kisorsoltakdgw.DataSource = nyerő;
+            catch (Exception ex)
+            {
 
-            var nyert = from j in context.Jelentkezok
-                                       where j.Id == kit
-                                       select j;
-            nyerő.Add(nyert);
-
-
-
-            //var nyert = from j in context.Jelentkezok
-            //            where j.Id == kit
-            //            select j;
-            //kisorsoltakdgw.DataSource = nyert.ToList();*/
-
+                MessageBox.Show("Hiba a mentéskor: " + ex.Message);
+            }
+            var lekerdezes = from x in context.Sorsoltak
+                             select x;
+            sorsoltakBindingSource.DataSource = lekerdezes.ToList();
         }
     }
 }

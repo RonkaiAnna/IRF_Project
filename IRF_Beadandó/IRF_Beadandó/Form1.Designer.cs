@@ -36,7 +36,7 @@ namespace IRF_Beadandó
             this.mentesgomb = new System.Windows.Forms.Button();
             this.sorsoltakBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.sorsoltakBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -50,11 +50,11 @@ namespace IRF_Beadandó
             this.sorsoltakDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sorsoltakBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.deletegomb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingNavigator)).BeginInit();
             this.sorsoltakBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // sorsologomb
@@ -78,7 +78,7 @@ namespace IRF_Beadandó
             // 
             // mentesgomb
             // 
-            this.mentesgomb.Location = new System.Drawing.Point(28, 276);
+            this.mentesgomb.Location = new System.Drawing.Point(28, 149);
             this.mentesgomb.Name = "mentesgomb";
             this.mentesgomb.Size = new System.Drawing.Size(138, 65);
             this.mentesgomb.TabIndex = 3;
@@ -90,14 +90,13 @@ namespace IRF_Beadandó
             // 
             this.sorsoltakBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
             this.sorsoltakBindingNavigator.BindingSource = this.sorsoltakBindingSource;
-            this.sorsoltakBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.sorsoltakBindingNavigator.CountItem = null;
             this.sorsoltakBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.sorsoltakBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
             this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
@@ -125,12 +124,9 @@ namespace IRF_Beadandó
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
-            // bindingNavigatorCountItem
+            // sorsoltakBindingSource
             // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            this.sorsoltakBindingSource.DataSource = typeof(IRF_Beadandó.Sorsoltak);
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -220,7 +216,7 @@ namespace IRF_Beadandó
             this.sorsoltakDataGridView.DataSource = this.sorsoltakBindingSource;
             this.sorsoltakDataGridView.Location = new System.Drawing.Point(217, 67);
             this.sorsoltakDataGridView.Name = "sorsoltakDataGridView";
-            this.sorsoltakDataGridView.Size = new System.Drawing.Size(422, 220);
+            this.sorsoltakDataGridView.Size = new System.Drawing.Size(253, 220);
             this.sorsoltakDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn2
@@ -235,15 +231,22 @@ namespace IRF_Beadandó
             this.dataGridViewTextBoxColumn3.HeaderText = "SorsoltEmail_cím";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // sorsoltakBindingSource
+            // deletegomb
             // 
-            this.sorsoltakBindingSource.DataSource = typeof(IRF_Beadandó.Sorsoltak);
+            this.deletegomb.Location = new System.Drawing.Point(28, 236);
+            this.deletegomb.Name = "deletegomb";
+            this.deletegomb.Size = new System.Drawing.Size(138, 65);
+            this.deletegomb.TabIndex = 5;
+            this.deletegomb.Text = "Datagridview ürítés";
+            this.deletegomb.UseVisualStyleBackColor = true;
+            this.deletegomb.Click += new System.EventHandler(this.deletegomb_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.deletegomb);
             this.Controls.Add(this.sorsoltakDataGridView);
             this.Controls.Add(this.sorsoltakBindingNavigator);
             this.Controls.Add(this.mentesgomb);
@@ -254,8 +257,8 @@ namespace IRF_Beadandó
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingNavigator)).EndInit();
             this.sorsoltakBindingNavigator.ResumeLayout(false);
             this.sorsoltakBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +272,7 @@ namespace IRF_Beadandó
         private System.Windows.Forms.BindingSource sorsoltakBindingSource;
         private System.Windows.Forms.BindingNavigator sorsoltakBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
@@ -284,6 +287,7 @@ namespace IRF_Beadandó
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Button deletegomb;
     }
 }
 
