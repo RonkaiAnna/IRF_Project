@@ -12,10 +12,10 @@ namespace IRF_Beadandó
     using System;
     using System.Collections.Generic;
     
-    public partial class Jelenetkezok
+    public partial class Jelentkezok
     {
         public int Id { get; set; }
         public string Név { get; set; }
-        public string Telefonszám { get; set; }
+        public string Email_cím { get; set; }
     }
 }

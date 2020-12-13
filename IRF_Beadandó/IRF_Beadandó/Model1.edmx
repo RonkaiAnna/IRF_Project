@@ -5,45 +5,45 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="adatbazisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Jelenetkezok">
+        <EntityType Name="Jelentkezok">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Név" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Telefonszám" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email cím" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="adatbazisModelStoreContainer">
-          <EntitySet Name="Jelenetkezok" EntityType="Self.Jelenetkezok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jelentkezok" EntityType="Self.Jelentkezok" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="adatbazisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Jelenetkezok">
+        <EntityType Name="Jelentkezok">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Név" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Telefonszám" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email_cím" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="adatbazisEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Jelenetkezok" EntityType="Self.Jelenetkezok" />
+        <EntityContainer Name="adatbazisEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Jelentkezok" EntityType="Self.Jelentkezok" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities">
-          <EntitySetMapping Name="Jelenetkezok">
-            <EntityTypeMapping TypeName="adatbazisModel.Jelenetkezok">
-              <MappingFragment StoreEntitySet="Jelenetkezok">
+        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities1">
+          <EntitySetMapping Name="Jelentkezok">
+            <EntityTypeMapping TypeName="adatbazisModel.Jelentkezok">
+              <MappingFragment StoreEntitySet="Jelentkezok">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Név" ColumnName="Név" />
-                <ScalarProperty Name="Telefonszám" ColumnName="Telefonszám" />
+                <ScalarProperty Name="Email_cím" ColumnName="Email cím" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

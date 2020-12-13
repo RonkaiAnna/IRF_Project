@@ -9,12 +9,12 @@ namespace IRF_Beadandó
     
     class Nyertes
     {
-        //adatbazisEntities context = new adatbazisEntities();
-        //public Nyertes(Jelenetkezok j)
-        //{
+        adatbazisEntities1 context = new adatbazisEntities1();
+        public Nyertes(Jelentkezok j)
+        {
 
-        //}
+        }
         public string Név { get; set; }
-        public string Telefonszám { get; set; }
+        public string Email_cím { get; set; }
     }
 }

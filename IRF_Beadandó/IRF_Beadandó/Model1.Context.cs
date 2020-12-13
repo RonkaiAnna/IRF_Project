@@ -13,10 +13,10 @@ namespace IRF_Beadandó
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class adatbazisEntities : DbContext
+    public partial class adatbazisEntities1 : DbContext
     {
-        public adatbazisEntities()
-            : base("name=adatbazisEntities")
+        public adatbazisEntities1()
+            : base("name=adatbazisEntities1")
         {
         }
     
@@ -25,6 +25,6 @@ namespace IRF_Beadandó
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Jelenetkezok> Jelenetkezok { get; set; }
+        public virtual DbSet<Jelentkezok> Jelentkezok { get; set; }
     }
 }
