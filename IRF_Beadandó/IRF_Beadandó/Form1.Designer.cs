@@ -32,7 +32,7 @@ namespace IRF_Beadandó
             this.sorsologomb = new System.Windows.Forms.Button();
             this.kisorsoltak = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mentesgomb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.kisorsoltak)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@ namespace IRF_Beadandó
             this.sorsologomb.TabIndex = 0;
             this.sorsologomb.Text = "Sorsolás";
             this.sorsologomb.UseVisualStyleBackColor = true;
+            this.sorsologomb.Click += new System.EventHandler(this.sorsologomb_Click);
             // 
             // kisorsoltak
             // 
@@ -62,21 +63,22 @@ namespace IRF_Beadandó
             this.label1.TabIndex = 2;
             this.label1.Text = "Kisorsoltak listája:";
             // 
-            // button1
+            // mentesgomb
             // 
-            this.button1.Location = new System.Drawing.Point(28, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 65);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Kisorsoltak fájlba mentés";
-            this.button1.UseVisualStyleBackColor = true;
+            this.mentesgomb.Location = new System.Drawing.Point(28, 276);
+            this.mentesgomb.Name = "mentesgomb";
+            this.mentesgomb.Size = new System.Drawing.Size(138, 65);
+            this.mentesgomb.TabIndex = 3;
+            this.mentesgomb.Text = "Kisorsoltak fájlba mentés";
+            this.mentesgomb.UseVisualStyleBackColor = true;
+            this.mentesgomb.Click += new System.EventHandler(this.mentesgomb_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.mentesgomb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.kisorsoltak);
             this.Controls.Add(this.sorsologomb);
@@ -93,7 +95,7 @@ namespace IRF_Beadandó
         private System.Windows.Forms.Button sorsologomb;
         private System.Windows.Forms.DataGridView kisorsoltak;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button mentesgomb;
     }
 }
 
