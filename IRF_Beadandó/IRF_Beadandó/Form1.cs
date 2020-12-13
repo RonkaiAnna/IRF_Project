@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,12 +14,14 @@ namespace IRF_Beadandó
 {
     public partial class Form1 : Form
     {
-        adatbazisEntities1 context = new adatbazisEntities1();
+        adatbazisEntities2 context = new adatbazisEntities2();
         Random rnd = new Random();
         List<Jelentkezok> nyerő = new List<Jelentkezok>();
         public Form1()
         {
             InitializeComponent();
+            context.Sorsoltak.Load();
+            sorsoltakBindingSource.DataSource = context.Sorsoltak.Local;
             
         }
 
@@ -45,21 +48,21 @@ namespace IRF_Beadandó
 
         private void sorsologomb_Click(object sender, EventArgs e)
         {
-            Sorsolas();
+            //Sorsolas();
         }
         int kit;
-        void Sorsolas()
+        /*void Sorsolas()
         {
             
             var összes = (from j in context.Jelentkezok
                           select j).Count();
-            /*ID probléma
+            ID probléma
             var első = (from j in context.Jelentkezok
                         select j.Id).First();
             var utolsó = (from j in context.Jelentkezok
                           select j.Id).Last();
             MessageBox.Show(első.ToString());
-            int kit = rnd.Next(első, utolsó);*/
+            int kit = rnd.Next(első, utolsó);
             for (int i = 0; i < 2; i++)
             {
                 kit = rnd.Next(1, összes + 1);
@@ -72,12 +75,12 @@ namespace IRF_Beadandó
             
                 
             
-            /*kisorsoltakdgw.DataSource = nyerő;
+            kisorsoltakdgw.DataSource = nyerő;
 
             var nyert = from j in context.Jelentkezok
                                        where j.Id == kit
                                        select j;
-            nyerő.Add(nyert);*/
+            nyerő.Add(nyert);
 
 
 
@@ -86,6 +89,6 @@ namespace IRF_Beadandó
             //            select j;
             //kisorsoltakdgw.DataSource = nyert.ToList();
 
-        }
+        }*/
     }
 }

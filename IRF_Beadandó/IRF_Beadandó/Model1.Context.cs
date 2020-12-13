@@ -13,10 +13,10 @@ namespace IRF_Beadandó
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class adatbazisEntities1 : DbContext
+    public partial class adatbazisEntities2 : DbContext
     {
-        public adatbazisEntities1()
-            : base("name=adatbazisEntities1")
+        public adatbazisEntities2()
+            : base("name=adatbazisEntities2")
         {
         }
     
@@ -26,5 +26,6 @@ namespace IRF_Beadandó
         }
     
         public virtual DbSet<Jelentkezok> Jelentkezok { get; set; }
+        public virtual DbSet<Sorsoltak> Sorsoltak { get; set; }
     }
 }

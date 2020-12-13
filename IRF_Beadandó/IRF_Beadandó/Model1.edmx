@@ -13,8 +13,17 @@
           <Property Name="Név" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email cím" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Sorsoltak">
+          <Key>
+            <PropertyRef Name="SorsoltId" />
+          </Key>
+          <Property Name="SorsoltId" Type="int" Nullable="false" />
+          <Property Name="SorsoltNév" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SorsoltEmail_cím" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="adatbazisModelStoreContainer">
           <EntitySet Name="Jelentkezok" EntityType="Self.Jelentkezok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sorsoltak" EntityType="Self.Sorsoltak" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -29,21 +38,39 @@
           <Property Name="Név" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email_cím" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="adatbazisEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Sorsoltak">
+          <Key>
+            <PropertyRef Name="SorsoltId" />
+          </Key>
+          <Property Name="SorsoltId" Type="Int32" Nullable="false" />
+          <Property Name="SorsoltNév" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SorsoltEmail_cím" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="adatbazisEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Jelentkezok" EntityType="Self.Jelentkezok" />
+          <EntitySet Name="Sorsoltak" EntityType="Self.Sorsoltak" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities1">
+        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities2">
           <EntitySetMapping Name="Jelentkezok">
             <EntityTypeMapping TypeName="adatbazisModel.Jelentkezok">
               <MappingFragment StoreEntitySet="Jelentkezok">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Név" ColumnName="Név" />
                 <ScalarProperty Name="Email_cím" ColumnName="Email cím" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sorsoltak">
+            <EntityTypeMapping TypeName="adatbazisModel.Sorsoltak">
+              <MappingFragment StoreEntitySet="Sorsoltak">
+                <ScalarProperty Name="SorsoltId" ColumnName="SorsoltId" />
+                <ScalarProperty Name="SorsoltNév" ColumnName="SorsoltNév" />
+                <ScalarProperty Name="SorsoltEmail_cím" ColumnName="SorsoltEmail_cím" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
