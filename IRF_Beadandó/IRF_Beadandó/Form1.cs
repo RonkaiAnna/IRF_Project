@@ -13,6 +13,8 @@ namespace IRF_Beadandó
 {
     public partial class Form1 : Form
     {
+        adatbazisEntities context = new adatbazisEntities();
+        BindingList<string> kisorsoltak = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,14 @@ namespace IRF_Beadandó
 
         private void sorsologomb_Click(object sender, EventArgs e)
         {
-
+            Sorsolas();
+        }
+        void Sorsolas()
+        {
+            var kisorsolt = from j in context.Jelenetkezok
+                            //where
+                            select j;
+            kisorsoltak = kisorsolt.ToList();
         }
     }
 }
