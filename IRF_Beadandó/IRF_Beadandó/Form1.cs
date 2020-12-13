@@ -47,23 +47,40 @@ namespace IRF_Beadandó
         {
             Sorsolas();
         }
-        
+        int kit;
         void Sorsolas()
         {
-            List<Jelentkezok> nyert = (from j in context.Jelentkezok
-                                 where j.Id == 1
-                                 select j).ToList();
-            nyerő = nyert;
-            kisorsoltakdgw.DataSource = nyerő;
+            
             var összes = (from j in context.Jelentkezok
                           select j).Count();
-            //var első = (from j in context.Jelentkezok
-            //            select j.Id).First();
-            //var utolsó = (from j in context.Jelentkezok
-            //              select j.Id).Last();
-            //MessageBox.Show(első.ToString());
-            //int kit = rnd.Next(első, utolsó);
-            int kit = rnd.Next(1, összes + 1);
+            /*ID probléma
+            var első = (from j in context.Jelentkezok
+                        select j.Id).First();
+            var utolsó = (from j in context.Jelentkezok
+                          select j.Id).Last();
+            MessageBox.Show(első.ToString());
+            int kit = rnd.Next(első, utolsó);*/
+            for (int i = 0; i < 2; i++)
+            {
+                kit = rnd.Next(1, összes + 1);
+                List<Jelentkezok> nyert = (from j in context.Jelentkezok
+                                           where j.Id == kit
+                                           select j).ToList();
+                nyerő = nyert;
+            }
+               
+            
+                
+            
+            /*kisorsoltakdgw.DataSource = nyerő;
+
+            var nyert = from j in context.Jelentkezok
+                                       where j.Id == kit
+                                       select j;
+            nyerő.Add(nyert);*/
+
+
+
             //var nyert = from j in context.Jelentkezok
             //            where j.Id == kit
             //            select j;
