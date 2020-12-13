@@ -14,15 +14,21 @@ namespace IRF_Beadandó
 {
     public partial class Form1 : Form
     {
-        adatbazisEntities2 context = new adatbazisEntities2();
+        adatbazisEntities context = new adatbazisEntities();
         Random rnd = new Random();
         List<Jelentkezok> nyerő = new List<Jelentkezok>();
         public Form1()
         {
             InitializeComponent();
-            context.Sorsoltak.Load();
-            sorsoltakBindingSource.DataSource = context.Sorsoltak.Local;
-            
+            Sorsoltakbetoltes();
+
+        }
+
+        private void Sorsoltakbetoltes()
+        {
+            var mind = from j in context.Sorsoltak
+                       select j;
+            sorsoltakBindingSource.DataSource = mind.ToList();
         }
 
         private void mentesgomb_Click(object sender, EventArgs e)
@@ -48,15 +54,92 @@ namespace IRF_Beadandó
 
         private void sorsologomb_Click(object sender, EventArgs e)
         {
-            //Sorsolas();
-        }
-        int kit;
-        /*void Sorsolas()
-        {
+            Sorsolas();
             
-            var összes = (from j in context.Jelentkezok
+        }
+        bool egyezik;
+        void Sorsolas()
+        {
+            var min = (from x in context.Jelentkezok
+                       select x.Id).Min();
+            var max = (from x in context.Jelentkezok
+                       select x.Id).Max();
+            var összesj = (from j in context.Jelentkezok
                           select j).Count();
-            ID probléma
+            var összess = (from s in context.Sorsoltak
+                          select s).Count();
+            //MessageBox.Show(összess.ToString());
+            //MessageBox.Show(összesj.ToString());
+            if (összesj == összess)
+            {
+                egyezik = false;
+                MessageBox.Show("Minden jelentkezőt kisorsoltak már");
+            }
+            else
+            {
+                egyezik = true;
+            }
+                while (egyezik == true)
+                {
+                    int kit = rnd.Next(min, max+1);
+                    //MessageBox.Show(kit.ToString());
+                    var d = (from x in context.Sorsoltak
+                             where x.SorsotlId == kit
+                             select x).Count();
+                    //MessageBox.Show(d.ToString());
+                    if (d == 0)
+                    {
+                        egyezik = false;
+                        Sorsoltak kisorsolt = new Sorsoltak();
+
+
+                        var nyertes = from x in context.Jelentkezok
+                                      where x.Id == kit
+                                      select x;
+                        foreach (var x in nyertes)
+                        {
+                            kisorsolt.SorsoltNév = x.Név;
+                            kisorsolt.SorsoltEmail_cím = x.Email_cím;
+                            kisorsolt.SorsotlId = x.Id;
+                        }
+                        context.Sorsoltak.Add(kisorsolt);
+                        try
+                        {
+                            context.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("Hiba a mentéskor: " + ex.Message);
+                        }
+                        var lekerdezes = from x in context.Sorsoltak
+                                         select x;
+                        sorsoltakBindingSource.DataSource = lekerdezes.ToList();
+
+                    }
+                }
+            
+            /*for (int i = 0; i < szamok.Count; i++)
+            {
+                if (szamok[i]==kit)
+                {
+                    return;
+                }
+                else
+                {
+                    szamok.Add(kit);
+                    if (true)
+                    {
+
+                    }
+                }
+            }*/
+            
+
+
+            /*var összes = (from j in context.Jelentkezok
+                          select j).Count();
+            //ID probléma
             var első = (from j in context.Jelentkezok
                         select j.Id).First();
             var utolsó = (from j in context.Jelentkezok
@@ -87,8 +170,8 @@ namespace IRF_Beadandó
             //var nyert = from j in context.Jelentkezok
             //            where j.Id == kit
             //            select j;
-            //kisorsoltakdgw.DataSource = nyert.ToList();
+            //kisorsoltakdgw.DataSource = nyert.ToList();*/
 
-        }*/
+        }
     }
 }

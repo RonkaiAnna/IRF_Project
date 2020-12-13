@@ -14,7 +14,8 @@ namespace IRF_Beadandó
     
     public partial class Sorsoltak
     {
-        public int SorsoltId { get; set; }
+        public int Id { get; set; }
+        public int SorsotlId { get; set; }
         public string SorsoltNév { get; set; }
         public string SorsoltEmail_cím { get; set; }
     }

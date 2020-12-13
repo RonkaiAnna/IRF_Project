@@ -15,9 +15,10 @@
         </EntityType>
         <EntityType Name="Sorsoltak">
           <Key>
-            <PropertyRef Name="SorsoltId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="SorsoltId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SorsotlId" Type="int" Nullable="false" />
           <Property Name="SorsoltNév" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SorsoltEmail_cím" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -40,13 +41,14 @@
         </EntityType>
         <EntityType Name="Sorsoltak">
           <Key>
-            <PropertyRef Name="SorsoltId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="SorsoltId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SorsotlId" Type="Int32" Nullable="false" />
           <Property Name="SorsoltNév" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SorsoltEmail_cím" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="adatbazisEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="adatbazisEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Jelentkezok" EntityType="Self.Jelentkezok" />
           <EntitySet Name="Sorsoltak" EntityType="Self.Sorsoltak" />
         </EntityContainer>
@@ -55,7 +57,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities2">
+        <EntityContainerMapping StorageEntityContainer="adatbazisModelStoreContainer" CdmEntityContainer="adatbazisEntities">
           <EntitySetMapping Name="Jelentkezok">
             <EntityTypeMapping TypeName="adatbazisModel.Jelentkezok">
               <MappingFragment StoreEntitySet="Jelentkezok">
@@ -68,7 +70,8 @@
           <EntitySetMapping Name="Sorsoltak">
             <EntityTypeMapping TypeName="adatbazisModel.Sorsoltak">
               <MappingFragment StoreEntitySet="Sorsoltak">
-                <ScalarProperty Name="SorsoltId" ColumnName="SorsoltId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SorsotlId" ColumnName="SorsotlId" />
                 <ScalarProperty Name="SorsoltNév" ColumnName="SorsoltNév" />
                 <ScalarProperty Name="SorsoltEmail_cím" ColumnName="SorsoltEmail_cím" />
               </MappingFragment>
