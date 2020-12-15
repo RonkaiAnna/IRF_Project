@@ -142,5 +142,21 @@ namespace IRF_Beadandó
                              select x;
             sorsoltakBindingSource.DataSource = lekerdezes.ToList();
         }
+
+        private void adatbevitelgomb_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UserControl adatbevitel = new Adatbevitel();
+            panel1.Controls.Add(adatbevitel);
+            adatbevitel.Dock = DockStyle.Fill;
+        }
+
+        private void sorsolasgomb_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UserControl sorsolas = new Sorsolás();
+            panel1.Controls.Add(sorsolas);
+            sorsolas.Dock = DockStyle.Fill;
+        }
     }
 }
