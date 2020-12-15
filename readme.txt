@@ -10,4 +10,8 @@ Ezek alapján én egy sorsoló programot tervezek létrehozni
 -A sorsolás után lehetõség van kiexportálni a kisorsolt személy(eke)t egy CSV fájlba
 -A LINQ lekérdezést abban a formában fogja tartalmazni, hogy egy futtatáskor minden személyt csak egyszer lehet kisorsolni
 	-akit már kisorsoltak nem sorsolhatnak újra
+	-a where-ben adom meg, hogy a kisorsolt szám legyen a jelenetkezõk ID-jával egyenlõ
 -Az adatbázis két táblából áll, egy jelentkezõkból és egy sorsoltakból. A sorsoltak tábla minden sorsosál után leürül.
+-A felhasználó felületet újra gondolva, úgy döntöttem, hogy panellal és usercontrollal oldom meg
+	-Így az egyik usercontrolon lehetõség lesz új jelentkezõ adatokat megadni
+	-A másik usercontrol megmarad a sorsolásnak
