@@ -120,7 +120,7 @@ namespace IRF_Beadandó
             this.Controls.Add(this.adatbevitelgomb);
             this.Controls.Add(this.label2);
             this.Name = "Form1";
-            this.Text = "SM";
+            this.Text = "Sorsold Magad";
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
