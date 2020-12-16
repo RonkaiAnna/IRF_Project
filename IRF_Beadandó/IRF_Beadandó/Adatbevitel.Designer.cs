@@ -31,9 +31,9 @@ namespace IRF_Beadandó
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adatbevitel));
+            System.Windows.Forms.Label névLabel;
+            System.Windows.Forms.Label email_címLabel;
             this.jelentkezokBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.jelentkezokBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -44,20 +44,29 @@ namespace IRF_Beadandó
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.jelentkezokBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.jelentkezokDataGridView = new System.Windows.Forms.DataGridView();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.hozzaadasgomb = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jelentkezokBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            névLabel = new System.Windows.Forms.Label();
+            email_címLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingNavigator)).BeginInit();
             this.jelentkezokBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // jelentkezokBindingNavigator
             // 
-            this.jelentkezokBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.jelentkezokBindingNavigator.AddNewItem = null;
             this.jelentkezokBindingNavigator.BindingSource = this.jelentkezokBindingSource;
             this.jelentkezokBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.jelentkezokBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
@@ -71,9 +80,8 @@ namespace IRF_Beadandó
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.jelentkezokBindingNavigatorSaveItem});
+            this.toolStripButton1});
             this.jelentkezokBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.jelentkezokBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.jelentkezokBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -81,22 +89,9 @@ namespace IRF_Beadandó
             this.jelentkezokBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.jelentkezokBindingNavigator.Name = "jelentkezokBindingNavigator";
             this.jelentkezokBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.jelentkezokBindingNavigator.Size = new System.Drawing.Size(472, 25);
+            this.jelentkezokBindingNavigator.Size = new System.Drawing.Size(525, 25);
             this.jelentkezokBindingNavigator.TabIndex = 0;
             this.jelentkezokBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // jelentkezokBindingSource
-            // 
-            this.jelentkezokBindingSource.DataSource = typeof(IRF_Beadandó.Jelentkezok);
             // 
             // bindingNavigatorCountItem
             // 
@@ -175,17 +170,9 @@ namespace IRF_Beadandó
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // jelentkezokBindingNavigatorSaveItem
-            // 
-            this.jelentkezokBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.jelentkezokBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("jelentkezokBindingNavigatorSaveItem.Image")));
-            this.jelentkezokBindingNavigatorSaveItem.Name = "jelentkezokBindingNavigatorSaveItem";
-            this.jelentkezokBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.jelentkezokBindingNavigatorSaveItem.Text = "Save Data";
-            this.jelentkezokBindingNavigatorSaveItem.Click += new System.EventHandler(this.jelentkezokBindingNavigatorSaveItem_Click);
-            // 
             // jelentkezokDataGridView
             // 
+            this.jelentkezokDataGridView.AllowUserToAddRows = false;
             this.jelentkezokDataGridView.AutoGenerateColumns = false;
             this.jelentkezokDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jelentkezokDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -195,8 +182,72 @@ namespace IRF_Beadandó
             this.jelentkezokDataGridView.DataSource = this.jelentkezokBindingSource;
             this.jelentkezokDataGridView.Location = new System.Drawing.Point(0, 25);
             this.jelentkezokDataGridView.Name = "jelentkezokDataGridView";
-            this.jelentkezokDataGridView.Size = new System.Drawing.Size(328, 318);
+            this.jelentkezokDataGridView.Size = new System.Drawing.Size(339, 318);
             this.jelentkezokDataGridView.TabIndex = 1;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Save Data";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // névLabel
+            // 
+            névLabel.AutoSize = true;
+            névLabel.Location = new System.Drawing.Point(371, 87);
+            névLabel.Name = "névLabel";
+            névLabel.Size = new System.Drawing.Size(30, 13);
+            névLabel.TabIndex = 2;
+            névLabel.Text = "Név:";
+            // 
+            // email_címLabel
+            // 
+            email_címLabel.AutoSize = true;
+            email_címLabel.Location = new System.Drawing.Point(345, 117);
+            email_címLabel.Name = "email_címLabel";
+            email_címLabel.Size = new System.Drawing.Size(56, 13);
+            email_címLabel.TabIndex = 4;
+            email_címLabel.Text = "Email cím:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(345, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Új rekord hozzáadása:";
+            // 
+            // hozzaadasgomb
+            // 
+            this.hozzaadasgomb.Location = new System.Drawing.Point(407, 149);
+            this.hozzaadasgomb.Name = "hozzaadasgomb";
+            this.hozzaadasgomb.Size = new System.Drawing.Size(100, 23);
+            this.hozzaadasgomb.TabIndex = 7;
+            this.hozzaadasgomb.Text = "Hozzáadás";
+            this.hozzaadasgomb.UseVisualStyleBackColor = true;
+            this.hozzaadasgomb.Click += new System.EventHandler(this.hozzaadasgomb_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(407, 80);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(407, 110);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 9;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -218,20 +269,32 @@ namespace IRF_Beadandó
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 130;
             // 
+            // jelentkezokBindingSource
+            // 
+            this.jelentkezokBindingSource.DataSource = typeof(IRF_Beadandó.Jelentkezok);
+            // 
             // Adatbevitel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.hozzaadasgomb);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(email_címLabel);
+            this.Controls.Add(névLabel);
             this.Controls.Add(this.jelentkezokDataGridView);
             this.Controls.Add(this.jelentkezokBindingNavigator);
             this.Name = "Adatbevitel";
-            this.Size = new System.Drawing.Size(472, 343);
+            this.Size = new System.Drawing.Size(525, 359);
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingNavigator)).EndInit();
             this.jelentkezokBindingNavigator.ResumeLayout(false);
             this.jelentkezokBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,7 +304,6 @@ namespace IRF_Beadandó
 
         private System.Windows.Forms.BindingSource jelentkezokBindingSource;
         private System.Windows.Forms.BindingNavigator jelentkezokBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -252,10 +314,15 @@ namespace IRF_Beadandó
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton jelentkezokBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView jelentkezokDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button hozzaadasgomb;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

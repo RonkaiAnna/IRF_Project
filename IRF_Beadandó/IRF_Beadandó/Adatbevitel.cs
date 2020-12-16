@@ -23,7 +23,14 @@ namespace IRF_Beadandó
         }
 
 
-        private void jelentkezokBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            mentesesfrissites();
+        }
+
+        private void mentesesfrissites()
         {
             jelentkezokBindingSource.EndEdit();
             try
@@ -39,20 +46,38 @@ namespace IRF_Beadandó
             jelentkezokDataGridView.Refresh();
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            jelentkezokBindingSource.EndEdit();
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
+            mentesesfrissites();
+        }
 
-                MessageBox.Show(ex.Message);
+        private void hozzaadasgomb_Click(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            if (textBox1.Text!="" && textBox2.Text!="")
+            {
+                jelentkezohozzaadas();
+                mentesesfrissites();
             }
+            else
+            {
+                if (textBox1.Text=="")
+                {
+                    errorProvider1.SetError(textBox1, "A név cím nem lehet üres");
+                }
+                if (textBox2.Text=="")
+                {
+                    errorProvider1.SetError(textBox2, "Az email cím nem lehet üres!");
+                }  
+            }
+        }
 
-            jelentkezokDataGridView.Refresh();
+        private void jelentkezohozzaadas()
+        {
+            Jelentkezok jelentkezo = new Jelentkezok();
+            jelentkezo.Név = textBox1.Text;
+            jelentkezo.Email_cím = textBox2.Text;
+            jelentkezokBindingSource.Add(jelentkezo);
         }
     }
 }

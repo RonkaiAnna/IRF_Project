@@ -35,9 +35,9 @@ namespace IRF_Beadandó
             this.sorsologomb = new System.Windows.Forms.Button();
             this.mentesgomb = new System.Windows.Forms.Button();
             this.deletegomb = new System.Windows.Forms.Button();
-            this.sorsoltakBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sorsoltakBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -97,10 +97,6 @@ namespace IRF_Beadandó
             this.deletegomb.UseVisualStyleBackColor = true;
             this.deletegomb.Click += new System.EventHandler(this.deletegomb_Click);
             // 
-            // sorsoltakBindingSource
-            // 
-            this.sorsoltakBindingSource.DataSource = typeof(IRF_Beadandó.Sorsoltak);
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "SorsoltNév";
@@ -116,18 +112,23 @@ namespace IRF_Beadandó
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 130;
             // 
+            // sorsoltakBindingSource
+            // 
+            this.sorsoltakBindingSource.DataSource = typeof(IRF_Beadandó.Sorsoltak);
+            // 
             // Sorsolás
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.deletegomb);
             this.Controls.Add(this.mentesgomb);
             this.Controls.Add(this.sorsologomb);
             this.Controls.Add(this.sorsoltakDataGridView);
             this.Controls.Add(this.label1);
             this.Name = "Sorsolás";
-            this.Size = new System.Drawing.Size(570, 346);
+            this.Size = new System.Drawing.Size(566, 342);
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).EndInit();
             this.ResumeLayout(false);

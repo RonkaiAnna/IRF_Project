@@ -59,7 +59,7 @@ namespace IRF_Beadandó
             while (egyezik == true)
             {
                 int kit = rnd.Next(min, max + 1);
-                //MessageBox.Show(kit.ToString());
+                MessageBox.Show(kit.ToString());
                 var sorsolt = (from x in context.Sorsoltak
                          where x.SorsotlId == kit
                          select x).Count();
