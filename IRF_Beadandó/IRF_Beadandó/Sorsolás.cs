@@ -33,14 +33,6 @@ namespace IRF_Beadandó
             }
         }
 
-        //Adatok betöltése a datagridview-ba
-        private void Sorsoltakbetoltes()
-        {
-            var mind = from j in context.Sorsoltak
-                       select j;
-            sorsoltakBindingSource.DataSource = mind.ToList();
-        }
-
         //Sorsolás gomb eseménye
         private void sorsologomb_Click(object sender, EventArgs e)
         {
@@ -192,6 +184,14 @@ namespace IRF_Beadandó
             sorsologomb.Enabled = true;
         }
 
+        //Adatok betöltése a datagridview-ba
+        private void Sorsoltakbetoltes()
+        {
+            var mind = from j in context.Sorsoltak
+                       select j;
+            sorsoltakBindingSource.DataSource = mind.ToList();
+        }
+
         //Vátoztatások mentése és datagridview frissítése
         private void mentesesfrissites()
         {
@@ -203,9 +203,7 @@ namespace IRF_Beadandó
             {
                 MessageBox.Show("Hiba a mentéskor: " + ex.Message);
             }
-            var lekerdezes = from x in context.Sorsoltak
-                             select x;
-            sorsoltakBindingSource.DataSource = lekerdezes.ToList();
+            Sorsoltakbetoltes();
         }
 
         //Összes sorsolt megszámolása
