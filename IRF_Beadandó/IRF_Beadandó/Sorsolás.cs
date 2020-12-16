@@ -59,40 +59,47 @@ namespace IRF_Beadandó
             while (egyezik == true)
             {
                 int kit = rnd.Next(min, max + 1);
-                MessageBox.Show(kit.ToString());
-                var sorsolt = (from x in context.Sorsoltak
-                         where x.SorsotlId == kit
-                         select x).Count();
-                //MessageBox.Show(sorsolt.ToString());
-                if (sorsolt == 0)
+                //MessageBox.Show(kit.ToString());
+                var letezik = (from x in context.Jelentkezok
+                              where x.Id == kit
+                              select x).Count();
+                //MessageBox.Show(letezik.ToString());
+                if (letezik != 0)
                 {
-                    egyezik = false;
-                    Sorsoltak kisorsolt = new Sorsoltak();
-
-
-                    var nyertes = from x in context.Jelentkezok
-                                  where x.Id == kit
-                                  select x;
-                    foreach (var x in nyertes)
+                    var sorsolt = (from x in context.Sorsoltak
+                                   where x.SorsotlId == kit
+                                   select x).Count();
+                    //MessageBox.Show(sorsolt.ToString());
+                    if (sorsolt == 0)
                     {
-                        kisorsolt.SorsoltNév = x.Név;
-                        kisorsolt.SorsoltEmail_cím = x.Email_cím;
-                        kisorsolt.SorsotlId = x.Id;
-                    }
-                    context.Sorsoltak.Add(kisorsolt);
-                    try
-                    {
-                        context.SaveChanges();
-                    }
-                    catch (Exception ex)
-                    {
+                        egyezik = false;
+                        Sorsoltak kisorsolt = new Sorsoltak();
 
-                        MessageBox.Show("Hiba a mentéskor: " + ex.Message);
-                    }
-                    var lekerdezes = from x in context.Sorsoltak
-                                     select x;
-                    sorsoltakBindingSource.DataSource = lekerdezes.ToList();
 
+                        var nyertes = from x in context.Jelentkezok
+                                      where x.Id == kit
+                                      select x;
+                        foreach (var x in nyertes)
+                        {
+                            kisorsolt.SorsoltNév = x.Név;
+                            kisorsolt.SorsoltEmail_cím = x.Email_cím;
+                            kisorsolt.SorsotlId = x.Id;
+                        }
+                        context.Sorsoltak.Add(kisorsolt);
+                        try
+                        {
+                            context.SaveChanges();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            MessageBox.Show("Hiba a mentéskor: " + ex.Message);
+                        }
+                        var lekerdezes = from x in context.Sorsoltak
+                                         select x;
+                        sorsoltakBindingSource.DataSource = lekerdezes.ToList();
+
+                    }
                 }
             }
 

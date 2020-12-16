@@ -69,7 +69,7 @@ namespace IRF_Beadandó
             // 
             // sorsologomb
             // 
-            this.sorsologomb.Location = new System.Drawing.Point(312, 50);
+            this.sorsologomb.Location = new System.Drawing.Point(312, 63);
             this.sorsologomb.Name = "sorsologomb";
             this.sorsologomb.Size = new System.Drawing.Size(138, 65);
             this.sorsologomb.TabIndex = 5;
@@ -79,7 +79,7 @@ namespace IRF_Beadandó
             // 
             // mentesgomb
             // 
-            this.mentesgomb.Location = new System.Drawing.Point(312, 121);
+            this.mentesgomb.Location = new System.Drawing.Point(312, 134);
             this.mentesgomb.Name = "mentesgomb";
             this.mentesgomb.Size = new System.Drawing.Size(138, 65);
             this.mentesgomb.TabIndex = 6;
@@ -89,7 +89,7 @@ namespace IRF_Beadandó
             // 
             // deletegomb
             // 
-            this.deletegomb.Location = new System.Drawing.Point(312, 192);
+            this.deletegomb.Location = new System.Drawing.Point(312, 205);
             this.deletegomb.Name = "deletegomb";
             this.deletegomb.Size = new System.Drawing.Size(138, 65);
             this.deletegomb.TabIndex = 7;
