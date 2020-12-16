@@ -32,27 +32,27 @@ namespace IRF_Beadandó
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adatbevitel));
             this.jelentkezokBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.jelentkezokBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.jelentkezokBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.jelentkezokDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jelentkezokBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingNavigator)).BeginInit();
             this.jelentkezokBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // jelentkezokBindingNavigator
@@ -84,6 +84,36 @@ namespace IRF_Beadandó
             this.jelentkezokBindingNavigator.Size = new System.Drawing.Size(472, 25);
             this.jelentkezokBindingNavigator.TabIndex = 0;
             this.jelentkezokBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // jelentkezokBindingSource
+            // 
+            this.jelentkezokBindingSource.DataSource = typeof(IRF_Beadandó.Jelentkezok);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -117,16 +147,9 @@ namespace IRF_Beadandó
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -149,27 +172,8 @@ namespace IRF_Beadandó
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // jelentkezokBindingNavigatorSaveItem
             // 
@@ -189,10 +193,9 @@ namespace IRF_Beadandó
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
             this.jelentkezokDataGridView.DataSource = this.jelentkezokBindingSource;
-            this.jelentkezokDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.jelentkezokDataGridView.Location = new System.Drawing.Point(0, 25);
             this.jelentkezokDataGridView.Name = "jelentkezokDataGridView";
-            this.jelentkezokDataGridView.Size = new System.Drawing.Size(472, 318);
+            this.jelentkezokDataGridView.Size = new System.Drawing.Size(328, 318);
             this.jelentkezokDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -215,15 +218,11 @@ namespace IRF_Beadandó
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 130;
             // 
-            // jelentkezokBindingSource
-            // 
-            this.jelentkezokBindingSource.DataSource = typeof(IRF_Beadandó.Jelentkezok);
-            // 
             // Adatbevitel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Maroon;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.jelentkezokDataGridView);
             this.Controls.Add(this.jelentkezokBindingNavigator);
             this.Name = "Adatbevitel";
@@ -231,8 +230,8 @@ namespace IRF_Beadandó
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingNavigator)).EndInit();
             this.jelentkezokBindingNavigator.ResumeLayout(false);
             this.jelentkezokBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jelentkezokDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
