@@ -35,10 +35,14 @@ namespace IRF_Beadandó
             this.sorsologomb = new System.Windows.Forms.Button();
             this.mentesgomb = new System.Windows.Forms.Button();
             this.deletegomb = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sorsoltakBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,10 +65,10 @@ namespace IRF_Beadandó
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.sorsoltakDataGridView.DataSource = this.sorsoltakBindingSource;
-            this.sorsoltakDataGridView.Location = new System.Drawing.Point(6, 50);
+            this.sorsoltakDataGridView.Location = new System.Drawing.Point(6, 37);
             this.sorsoltakDataGridView.Name = "sorsoltakDataGridView";
             this.sorsoltakDataGridView.ReadOnly = true;
-            this.sorsoltakDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.sorsoltakDataGridView.Size = new System.Drawing.Size(300, 233);
             this.sorsoltakDataGridView.TabIndex = 4;
             // 
             // sorsologomb
@@ -97,6 +101,26 @@ namespace IRF_Beadandó
             this.deletegomb.UseVisualStyleBackColor = true;
             this.deletegomb.Click += new System.EventHandler(this.deletegomb_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(313, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(137, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(312, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Nyertesek száma:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "SorsoltNév";
@@ -122,6 +146,8 @@ namespace IRF_Beadandó
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.deletegomb);
             this.Controls.Add(this.mentesgomb);
             this.Controls.Add(this.sorsologomb);
@@ -130,6 +156,7 @@ namespace IRF_Beadandó
             this.Name = "Sorsolás";
             this.Size = new System.Drawing.Size(566, 342);
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sorsoltakBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -146,5 +173,8 @@ namespace IRF_Beadandó
         private System.Windows.Forms.Button deletegomb;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

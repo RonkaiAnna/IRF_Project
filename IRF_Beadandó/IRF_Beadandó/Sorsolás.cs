@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,10 +16,17 @@ namespace IRF_Beadandó
     {
         adatbazisEntities context = new adatbazisEntities();
         Random rnd = new Random();
+        Regex regex = new Regex(@"(^[0-9]*$)");
         public Sorsolás()
         {
             InitializeComponent();
             Sorsoltakbetoltes();
+            var összess = (from s in context.Sorsoltak
+                           select s).Count();
+            if (összess!=0)
+            {
+                sorsologomb.Enabled = false;
+            }
         }
         private void Sorsoltakbetoltes()
         {
@@ -29,7 +37,33 @@ namespace IRF_Beadandó
 
         private void sorsologomb_Click(object sender, EventArgs e)
         {
-            Sorsolas();
+            var összesj = (from j in context.Jelentkezok
+                            select j).Count();
+            MessageBox.Show(összesj.ToString());
+            if (textBox1.Text == "")
+            {
+                errorProvider1.SetError(textBox1, "Nyertesek száma nem lehet üres!");
+            }
+            else if (regex.IsMatch(textBox1.Text))
+            {
+                if (Convert.ToInt32(textBox1.Text) > összesj)
+                {
+                    errorProvider1.SetError(textBox1, "A jelentkezők száma: " + összesj.ToString() + "! Ennél több nyertest nem lehet sorsolni");
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                    for (int i = 0; i < Convert.ToInt32(textBox1.Text); i++)
+                    {
+                        Sorsolas();
+                    }
+                    sorsologomb.Enabled = false;
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "Csak számokat fogad el!");
+            }
         }
         
         void Sorsolas()
@@ -147,6 +181,9 @@ namespace IRF_Beadandó
             var lekerdezes = from x in context.Sorsoltak
                              select x;
             sorsoltakBindingSource.DataSource = lekerdezes.ToList();
+            sorsologomb.Enabled = true;
         }
+        
+        
     }
 }
