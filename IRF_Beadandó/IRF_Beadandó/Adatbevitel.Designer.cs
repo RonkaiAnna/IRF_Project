@@ -30,9 +30,14 @@ namespace IRF_Beadandó
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adatbevitel));
             System.Windows.Forms.Label névLabel;
             System.Windows.Forms.Label email_címLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Adatbevitel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jelentkezokBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -44,13 +49,14 @@ namespace IRF_Beadandó
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.jelentkezokDataGridView = new System.Windows.Forms.DataGridView();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.jelentkezokDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.hozzaadasgomb = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +70,32 @@ namespace IRF_Beadandó
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // névLabel
+            // 
+            névLabel.AutoSize = true;
+            névLabel.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            névLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            névLabel.Location = new System.Drawing.Point(367, 69);
+            névLabel.Name = "névLabel";
+            névLabel.Size = new System.Drawing.Size(38, 19);
+            névLabel.TabIndex = 2;
+            névLabel.Text = "Név:";
+            // 
+            // email_címLabel
+            // 
+            email_címLabel.AutoSize = true;
+            email_címLabel.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            email_címLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            email_címLabel.Location = new System.Drawing.Point(367, 109);
+            email_címLabel.Name = "email_címLabel";
+            email_címLabel.Size = new System.Drawing.Size(80, 19);
+            email_címLabel.TabIndex = 4;
+            email_címLabel.Text = "Email cím:";
+            // 
             // jelentkezokBindingNavigator
             // 
             this.jelentkezokBindingNavigator.AddNewItem = null;
+            this.jelentkezokBindingNavigator.AutoSize = false;
             this.jelentkezokBindingNavigator.BindingSource = this.jelentkezokBindingSource;
             this.jelentkezokBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.jelentkezokBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
@@ -80,8 +109,8 @@ namespace IRF_Beadandó
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorDeleteItem,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.bindingNavigatorDeleteItem});
             this.jelentkezokBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.jelentkezokBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.jelentkezokBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -89,7 +118,7 @@ namespace IRF_Beadandó
             this.jelentkezokBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.jelentkezokBindingNavigator.Name = "jelentkezokBindingNavigator";
             this.jelentkezokBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.jelentkezokBindingNavigator.Size = new System.Drawing.Size(525, 25);
+            this.jelentkezokBindingNavigator.Size = new System.Drawing.Size(594, 25);
             this.jelentkezokBindingNavigator.TabIndex = 0;
             this.jelentkezokBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -107,7 +136,7 @@ namespace IRF_Beadandó
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Text = "Törlés";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
@@ -170,62 +199,95 @@ namespace IRF_Beadandó
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // jelentkezokDataGridView
-            // 
-            this.jelentkezokDataGridView.AllowUserToAddRows = false;
-            this.jelentkezokDataGridView.AutoGenerateColumns = false;
-            this.jelentkezokDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.jelentkezokDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.jelentkezokDataGridView.DataSource = this.jelentkezokBindingSource;
-            this.jelentkezokDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.jelentkezokDataGridView.Name = "jelentkezokDataGridView";
-            this.jelentkezokDataGridView.Size = new System.Drawing.Size(339, 318);
-            this.jelentkezokDataGridView.TabIndex = 1;
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Save Data";
+            this.toolStripButton1.Text = "Mentés";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // névLabel
+            // jelentkezokDataGridView
             // 
-            névLabel.AutoSize = true;
-            névLabel.Location = new System.Drawing.Point(371, 87);
-            névLabel.Name = "névLabel";
-            névLabel.Size = new System.Drawing.Size(30, 13);
-            névLabel.TabIndex = 2;
-            névLabel.Text = "Név:";
-            // 
-            // email_címLabel
-            // 
-            email_címLabel.AutoSize = true;
-            email_címLabel.Location = new System.Drawing.Point(345, 117);
-            email_címLabel.Name = "email_címLabel";
-            email_címLabel.Size = new System.Drawing.Size(56, 13);
-            email_címLabel.TabIndex = 4;
-            email_címLabel.Text = "Email cím:";
+            this.jelentkezokDataGridView.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("AR JULIAN", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.jelentkezokDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.jelentkezokDataGridView.AutoGenerateColumns = false;
+            this.jelentkezokDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("AR JULIAN", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jelentkezokDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.jelentkezokDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.jelentkezokDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.jelentkezokDataGridView.DataSource = this.jelentkezokBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("AR JULIAN", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.jelentkezokDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.jelentkezokDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.jelentkezokDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.jelentkezokDataGridView.Name = "jelentkezokDataGridView";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("AR JULIAN", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jelentkezokDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("AR JULIAN", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.jelentkezokDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.jelentkezokDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.jelentkezokDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("AR JULIAN", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jelentkezokDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.jelentkezokDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.jelentkezokDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.jelentkezokDataGridView.Size = new System.Drawing.Size(350, 318);
+            this.jelentkezokDataGridView.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(345, 59);
+            this.label1.Font = new System.Drawing.Font("AR JULIAN", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(366, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.Size = new System.Drawing.Size(210, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Új rekord hozzáadása:";
             // 
             // hozzaadasgomb
             // 
-            this.hozzaadasgomb.Location = new System.Drawing.Point(407, 149);
+            this.hozzaadasgomb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.hozzaadasgomb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.hozzaadasgomb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.hozzaadasgomb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hozzaadasgomb.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hozzaadasgomb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.hozzaadasgomb.Location = new System.Drawing.Point(370, 151);
             this.hozzaadasgomb.Name = "hozzaadasgomb";
-            this.hozzaadasgomb.Size = new System.Drawing.Size(100, 23);
+            this.hozzaadasgomb.Size = new System.Drawing.Size(206, 40);
             this.hozzaadasgomb.TabIndex = 7;
             this.hozzaadasgomb.Text = "Hozzáadás";
             this.hozzaadasgomb.UseVisualStyleBackColor = true;
@@ -233,21 +295,41 @@ namespace IRF_Beadandó
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(407, 80);
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBox1.Location = new System.Drawing.Point(476, 62);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(100, 26);
             this.textBox1.TabIndex = 8;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(407, 110);
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBox2.Location = new System.Drawing.Point(476, 102);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 9;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("AR JULIAN", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.richTextBox1.Location = new System.Drawing.Point(370, 197);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(206, 146);
+            this.richTextBox1.TabIndex = 11;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -277,8 +359,8 @@ namespace IRF_Beadandó
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.hozzaadasgomb);
@@ -288,7 +370,7 @@ namespace IRF_Beadandó
             this.Controls.Add(this.jelentkezokDataGridView);
             this.Controls.Add(this.jelentkezokBindingNavigator);
             this.Name = "Adatbevitel";
-            this.Size = new System.Drawing.Size(525, 359);
+            this.Size = new System.Drawing.Size(594, 377);
             ((System.ComponentModel.ISupportInitialize)(this.jelentkezokBindingNavigator)).EndInit();
             this.jelentkezokBindingNavigator.ResumeLayout(false);
             this.jelentkezokBindingNavigator.PerformLayout();
@@ -324,5 +406,6 @@ namespace IRF_Beadandó
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

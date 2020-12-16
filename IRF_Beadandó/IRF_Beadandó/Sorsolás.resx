@@ -123,4 +123,7 @@
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>196, 17</value>
   </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Tipp: A sorsoláshoz meg kell adni, hogy hány nyertes szeretnénk sorsolni. Amennyiben a lista már tartalmaz nyerteseket, a sorsolás le van tiltva. Ha újra szeretnénk sorsolni, törölni kell a korábbi listát. A sorsolás végeztével ki lehet menteni CSV fájlba a listát</value>
+  </data>
 </root>
