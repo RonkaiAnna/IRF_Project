@@ -42,22 +42,23 @@ namespace IRF_Beadandó
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("AR JULIAN", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(206, 21);
+            this.label2.Location = new System.Drawing.Point(235, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(404, 27);
+            this.label2.Size = new System.Drawing.Size(310, 26);
             this.label2.TabIndex = 6;
             this.label2.Text = "Üdv a Sorsold Magad programban!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // adatbevitelgomb
             // 
+            this.adatbevitelgomb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adatbevitelgomb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.adatbevitelgomb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.adatbevitelgomb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.adatbevitelgomb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adatbevitelgomb.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adatbevitelgomb.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adatbevitelgomb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.adatbevitelgomb.Location = new System.Drawing.Point(12, 62);
             this.adatbevitelgomb.Name = "adatbevitelgomb";
@@ -69,11 +70,12 @@ namespace IRF_Beadandó
             // 
             // sorsolasgomb
             // 
+            this.sorsolasgomb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sorsolasgomb.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.sorsolasgomb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.sorsolasgomb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.sorsolasgomb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sorsolasgomb.Font = new System.Drawing.Font("AR JULIAN", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sorsolasgomb.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sorsolasgomb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.sorsolasgomb.Location = new System.Drawing.Point(12, 140);
             this.sorsolasgomb.Name = "sorsolasgomb";
@@ -95,11 +97,11 @@ namespace IRF_Beadandó
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("AR JULIAN", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 268);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 290);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(120, 150);
+            this.richTextBox1.Size = new System.Drawing.Size(120, 128);
             this.richTextBox1.TabIndex = 10;
             this.richTextBox1.Text = "Tipp: Válassza ki, hogy új adatokat akar-e bevinni a rendszerbe, vagy a rendelkez" +
     "ésre álló adatokból szeretne-e sorsolni";
